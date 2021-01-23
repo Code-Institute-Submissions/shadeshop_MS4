@@ -64,6 +64,10 @@ body {
     color: #000 !important;
 }
 
+.nav-link {
+    font-size: 1.25rem;
+}
+
 .border-black {
     border: 1px solid black !important;
 }
