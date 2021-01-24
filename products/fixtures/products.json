@@ -1,0 +1,434 @@
+[
+ {
+   "pk": 1,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100001",
+      "name": "Ray-Ban MasterClass Black",
+      "description": "The classic and well known sunglasses brand. This pair come with a black frame, black polarized glass with silver frame and edging. A classic and timeless look for any women. ",
+      "price": 109.99,
+      "sale": 1,
+      "saleprice": 87.99,
+      "gender": "F",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100001.jpg",
+      "image": "pp100001.jpg",
+      "image_credit": "Photo by Laura Chouette on Unsplash"
+   }
+},
+ {
+   "pk": 2,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100002",
+      "name": "Oakley Tortoise",
+      "description": "Practical but stylish glass. This pair of sunglasses over practical comfort but contempary style for the modern women. ",
+      "price": 99.98,
+      "sale": 1,
+      "saleprice": 79.98,
+      "gender": "F",
+      "brand": 2,
+      "rating": 4.6,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100002.jpg",
+      "image": "pp100002.jpg",
+      "image_credit": "Photo by Oleksandr Koval on Unsplash"
+   }
+},
+ {
+   "pk": 3,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100003",
+      "name": "Gucci Oversized Stripe",
+      "description": "These statement glasses are like no other. A green and pink oversized frame with gradient purple glass will add a fashionable egde to any outfit. ",
+      "price": 78.98,
+      "sale": 0,
+      "saleprice": 63.18,
+      "gender": "F",
+      "brand": 3,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100003.jpg",
+      "image": "pp100003.jpg",
+      "image_credit": "Photo by Ali Pazani on Unsplash"
+   }
+},
+ {
+   "pk": 4,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100004",
+      "name": "Ray-Ban MasterClass Brown",
+      "description": "The classic and well known sunglasses brand. This pair come with a tortoise frame, brown polarized glass with gold frame and edging. A classic and timeless look for any women. ",
+      "price": 120.98,
+      "sale": 1,
+      "saleprice": 96.78,
+      "gender": "F",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100004.jpg",
+      "image": "pp100004.jpg",
+      "image_credit": "Photo by Kumpan Electric on Unsplash"
+   }
+},
+ {
+   "pk": 5,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100005",
+      "name": "D&G Pointed Tortoise",
+      "description": "Thes glasses over a comtempary and over-the-top look for the modern women. The dark tortoise frame with pointed corners accentuate the oversized look for a statement piece. ",
+      "price": 55.68,
+      "sale": 0,
+      "saleprice": 44.54,
+      "gender": "F",
+      "brand": 4,
+      "rating": 4.3,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100005.jpg",
+      "image": "pp100005.jpg",
+      "image_credit": "Photo by Sara Dabaghian on Unsplash"
+   }
+},
+ {
+   "pk": 6,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100006",
+      "name": "Prada Black Oversized",
+      "description": "An oversized take on the Prada classic. This glasses are practical enough to wear everyday but still make a fashion statement. ",
+      "price": 69.99,
+      "sale": 0,
+      "saleprice": 55.99,
+      "gender": "F",
+      "brand": 5,
+      "rating": 4.8,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100006.jpg",
+      "image": "pp100006.jpg",
+      "image_credit": "Photo by Omid Armin on Unsplash"
+   }
+},
+ {
+   "pk": 7,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100007",
+      "name": "Ray-Ban Round Gold",
+      "description": "Another of the classic Ray-Ban frames. Bring out your inner John Lennon with these round gold frames glasses with black inset. ",
+      "price": 109.99,
+      "sale": 1,
+      "saleprice": 87.99,
+      "gender": "F",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100007.jpg",
+      "image": "pp100007.jpg",
+      "image_credit": "Photo by Brooke Cagle on Unsplash"
+   }
+},
+ {
+   "pk": 8,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100008",
+      "name": "Oakley Round Gold",
+      "description": "A modern bohemian look from the practical Oakley brand. This lightweight glasses over just enough style to set you apart. Easily dressed up or down for any occasion. ",
+      "price": 99.98,
+      "sale": 1,
+      "saleprice": 79.98,
+      "gender": "F",
+      "brand": 2,
+      "rating": 4.6,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100008.jpg",
+      "image": "pp100008.jpg",
+      "image_credit": "Photo by Charles Deluvio on Unsplash"
+   }
+},
+ {
+   "pk": 9,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100009",
+      "name": "Gucci Thick Frame Black",
+      "description": "Another oversized classic from the famed Gucci brand. These black thick frame glasses are classicly Gucci and will add a statement to any outfit but remain practically comfortable. ",
+      "price": 78.98,
+      "sale": 1,
+      "saleprice": 63.18,
+      "gender": "F",
+      "brand": 3,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100009.jpg",
+      "image": "pp100009.jpg",
+      "image_credit": "Photo by Michele Seghieri on Unsplash"
+   }
+},
+ {
+   "pk": 10,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100010",
+      "name": "Ray-Ban Black Round",
+      "description": "The classic and well known sunglasses brand. This pair come with a black frame, black polarized glassand black detailing. A classic and timeless look for any women. ",
+      "price": 120.98,
+      "sale": 0,
+      "saleprice": 96.78,
+      "gender": "F",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100010.jpg",
+      "image": "pp100010.jpg",
+      "image_credit": "Photo by yang miao on Unsplash"
+   }
+},
+ {
+   "pk": 11,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100011",
+      "name": "D&G Rounded Circle",
+      "description": "Fashion comes full circle with these oversized round frames, made even more eye-catching thanks to a variety of vibrant frames and lenses",
+      "price": 55.68,
+      "sale": 0,
+      "saleprice": 44.54,
+      "gender": "F",
+      "brand": 4,
+      "rating": 4.3,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100011.jpg",
+      "image": "pp100011.jpg",
+      "image_credit": "Photo by Jakayla Toney on Unsplash"
+   }
+},
+ {
+   "pk": 12,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100012",
+      "name": "Prada Silver Circle",
+      "description": "High fashion and polar lenses unite. This sophisticated style features sleek metallic accents for fashionable elegance. Polarised lenses provided richer color and clarity.",
+      "price": 69.99,
+      "sale": 0,
+      "saleprice": 55.99,
+      "gender": "F",
+      "brand": 5,
+      "rating": 4.8,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100012.jpg",
+      "image": "pp100012.jpg",
+      "image_credit": "Photo by Ashley Byrd on Unsplash"
+   }
+},
+ {
+   "pk": 13,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100013",
+      "name": "Ray-Ban Square Black",
+      "description": "A simple, yet elegant design, this injected larger plastic frame is both comfortable and stylish with green, polarised lenses. Show off your cool side with this square black look.",
+      "price": 99.99,
+      "sale": 1,
+      "saleprice": 79.99,
+      "gender": "M",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100013.jpg",
+      "image": "pp100013.jpg",
+      "image_credit": "Photo by Gursimrat Ganda on Unsplash"
+   }
+},
+ {
+   "pk": 14,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100014",
+      "name": "Oakley Aviator Gold",
+      "description": "The Oakley metal, iconic sunglasses are known for their defined round crystal lenses and distinct shape. A curved brow bar, adjustable nose pads, and thin metal temples with plastic end tips rest comfortably behind the ears.",
+      "price": 109.99,
+      "sale": 1,
+      "saleprice": 87.99,
+      "gender": "M",
+      "brand": 2,
+      "rating": 4.6,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100014.jpg",
+      "image": "pp100014.jpg",
+      "image_credit": "Photo by Cameron Venti on Unsplash"
+   }
+},
+ {
+   "pk": 15,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100015",
+      "name": "Gucci Square Black",
+      "description": "Gucci square black acetate sunglasses with grey lenses. Come in a designer-stamped case.",
+      "price": 79.99,
+      "sale": 0,
+      "saleprice": 63.99,
+      "gender": "M",
+      "brand": 3,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100015.jpg",
+      "image": "pp100015.jpg",
+      "image_credit": "Photo by Scorpio Creative on Unsplash"
+   }
+},
+ {
+   "pk": 16,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100016",
+      "name": "Ray-Brown Beige/Brown",
+      "description": "Pairing lightweight nylon with gradient and polarized lens options, these up-to-date frames offer plenty of couture confidence.",
+      "price": 49.99,
+      "sale": 1,
+      "saleprice": 39.99,
+      "gender": "M",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100016.jpg",
+      "image": "pp100016.jpg",
+      "image_credit": "Photo by Apostolos Vamvouras on Unsplash"
+   }
+},
+ {
+   "pk": 17,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100017",
+      "name": "Oakley Black/Orange Oversized",
+      "description": "A statement pair of sunglasses like no other. Get noticed with oversized black frame orange lens glasses.",
+      "price": 110.99,
+      "sale": 1,
+      "saleprice": 88.79,
+      "gender": "M",
+      "brand": 2,
+      "rating": 4.3,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100017.jpg",
+      "image": "pp100017.jpg",
+      "image_credit": "Photo by Greg Rosenke on Unsplash"
+   }
+},
+ {
+   "pk": 18,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100018",
+      "name": "Prada Aviator Gold",
+      "description": "The classic 1960s look with modern detailing. A curved brow bar, adjustable nose pads, and thin metal temples with plastic end tips rest comfortably behind the ears.",
+      "price": 129.99,
+      "sale": 0,
+      "saleprice": 103.99,
+      "gender": "M",
+      "brand": 5,
+      "rating": 4.8,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100018.jpg",
+      "image": "pp100018.jpg",
+      "image_credit": "Photo by Suka Endara on Unsplash"
+   }
+},
+ {
+   "pk": 19,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100019",
+      "name": "Ray-Ban Dark Black",
+      "description": "The Ray-Ban is simply the most recognizable style in sunglasses. This classic version comes with a sleek black frame and green classic (non-Polarized) lenses offering ultimate clarity and enhanced vision.",
+      "price": 120.98,
+      "sale": 1,
+      "saleprice": 96.78,
+      "gender": "M",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100019.jpg",
+      "image": "pp100019.jpg",
+      "image_credit": "Photo by Suka Endara on Unsplash"
+   }
+},
+ {
+   "pk": 20,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100020",
+      "name": "Oakley Burnt Brown",
+      "description": "Slim acetate frame and skinny temples, these glasses delivers an aura of cool sophistication, enhanced withr brown lenses, and even with eye-catching gradients.",
+      "price": 55.68,
+      "sale": 1,
+      "saleprice": 44.54,
+      "gender": "M",
+      "brand": 2,
+      "rating": 4.6,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100020.jpg",
+      "image": "pp100020.jpg",
+      "image_credit": "Photo by Chandrachur Lahiri on Unsplash"
+   }
+},
+ {
+   "pk": 21,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100021",
+      "name": "Gucci Gold Square",
+      "description": "These square Gucci shades make a striking statement with the gold Gucci Medusa placed on the split-metal, bronzy temples.",
+      "price": 69.99,
+      "sale": 0,
+      "saleprice": 55.99,
+      "gender": "M",
+      "brand": 3,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100021.jpg",
+      "image": "pp100021.jpg",
+      "image_credit": "Photo by Habib Dadkhah on Unsplash"
+   }
+},
+ {
+   "pk": 22,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100022",
+      "name": "Ray-Ban Aviator Mirror Silver",
+      "description": "Mirror your style with Ray-Ban Aviator Mirror sunglasses. Ray-Ban Aviator Mirror combines this iconic model with mirrored lenses, so you not only have extra protection from light transmission, but you'll also shine on stage.",
+      "price": 99.99,
+      "sale": 1,
+      "saleprice": 79.99,
+      "gender": "M",
+      "brand": 1,
+      "rating": 4.5,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100022.jpg",
+      "image": "pp100022.jpg",
+      "image_credit": "Photo by christian buehner on Unsplash"
+   }
+},
+ {
+   "pk": 23,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100023",
+      "name": "D&G Black/Yellow",
+      "description": "The classic D&G thick black frame glasses. This updated version comes with a stylish black frame and yellow lenses, providing ultimate clarity and enhanced vision.",
+      "price": 109.99,
+      "sale": 0,
+      "saleprice": 87.99,
+      "gender": "M",
+      "brand": 4,
+      "rating": 4.3,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100023.jpg",
+      "image": "pp100023.jpg",
+      "image_credit": "Photo by Carlos Bryan on Unsplash"
+   }
+},
+ {
+   "pk": 24,
+   "model": "products.product",
+   "fields": {
+      "sku": "pp100024",
+      "name": "Prada Hexagonal Black",
+      "description": "What do you get when you cross a circle with a square? You get hexagonal, the evolution of round featuring flat crystal lenses.Round has met flat, when it comes to lenses that is. This hexagonal round metal shape features thin coined profiles and flat crystal lenses on classic gold with extremely thin temples. ",
+      "price": 49.99,
+      "sale": 0,
+      "saleprice": 39.99,
+      "gender": "M",
+      "brand": 5,
+      "rating": 4.8,
+      "image_url": "https://shadeshop.s3-eu-west-1.amazonaws.com/pp100024.jpg",
+      "image": "pp100024.jpg",
+      "image_credit": "Photo by vahid kanani on Unsplash"
+   }
+}
+]

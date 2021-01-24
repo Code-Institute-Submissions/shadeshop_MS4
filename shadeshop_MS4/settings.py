@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Setup Connection Variables for AWS server for image storage
+BUCKET_NAME = "shadeshop"
+AWS_KEY_ID = os.environ.get("AWS_KEY_ID")
+AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
+S3_LOCATION = 'http://{}.s3.amazonaws.com/'.format(BUCKET_NAME)

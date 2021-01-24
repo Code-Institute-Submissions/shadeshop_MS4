@@ -1,0 +1,42 @@
+[
+ {
+   "pk": 1,
+   "model": "products.brand",
+   "fields": {
+      "name": "ray_ban",
+      "friendly_name": "Ray-Ban"
+   }
+},
+ {
+   "pk": 2,
+   "model": "products.brand",
+   "fields": {
+      "name": "oakley",
+      "friendly_name": "Oakley"
+   }
+},
+ {
+   "pk": 3,
+   "model": "products.brand",
+   "fields": {
+      "name": "gucci",
+      "friendly_name": "Gucci"
+   }
+},
+ {
+   "pk": 4,
+   "model": "products.brand",
+   "fields": {
+      "name": "dolce_gabana",
+      "friendly_name": "Dolce & Gabana"
+   }
+},
+ {
+   "pk": 5,
+   "model": "products.brand",
+   "fields": {
+      "name": "prada",
+      "friendly_name": "Prada"
+   }
+}
+]
