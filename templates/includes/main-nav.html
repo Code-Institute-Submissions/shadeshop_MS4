@@ -5,9 +5,12 @@
                 Women
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">All Brands</a>
-                <a href="" class="dropdown-item ">Brand 1</a>
-                <a href="" class="dropdown-item ">Brand 2 etc</a>
+                <a href="{% url 'products' %}?gender=F" class="dropdown-item">All Brands</a>
+                <a href="{% url 'products' %}?brand=1&gender=F" class="dropdown-item ">Ray-Ban</a>
+                <a href="{% url 'products' %}?brand=2&gender=F" class="dropdown-item ">Oakley</a>
+                <a href="{% url 'products' %}?brand=3&gender=F" class="dropdown-item ">Gucci</a>
+                <a href="{% url 'products' %}?brand=4&gender=F" class="dropdown-item ">Dolce & Gabana</a>
+                <a href="{% url 'products' %}?brand=5&gender=F" class="dropdown-item ">Prada</a>
             </div>
         </li>
 
@@ -16,9 +19,12 @@
                 Men
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">All Brands</a>
-                <a href="" class="dropdown-item ">Brand 1</a>
-                <a href="" class="dropdown-item ">Brand 2 etc</a>
+                <a href="{% url 'products' %}?gender=M" class="dropdown-item">All Brands</a>
+                <a href="{% url 'products' %}?brand=1&gender=M" class="dropdown-item ">Ray-Ban</a>
+                <a href="{% url 'products' %}?brand=2&gender=M" class="dropdown-item ">Oakley</a>
+                <a href="{% url 'products' %}?brand=3&gender=M" class="dropdown-item ">Gucci</a>
+                <a href="{% url 'products' %}?brand=4&gender=M" class="dropdown-item ">Dolce & Gabana</a>
+                <a href="{% url 'products' %}?brand=5&gender=M" class="dropdown-item ">Prada</a>
             </div>
         </li>
 
@@ -27,8 +33,9 @@
                 Summer Sale
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">Women</a>
-                <a href="" class="dropdown-item ">Men</a>
+                <a href="{% url 'products' %}?sale=True" class="dropdown-item">All Sale</a>
+                <a href="{% url 'products' %}?gender=F&sale=True" class="dropdown-item">Women</a>
+                <a href="{% url 'products' %}?gender=M&sale=True" class="dropdown-item ">Men</a>
             </div>
         </li>
 

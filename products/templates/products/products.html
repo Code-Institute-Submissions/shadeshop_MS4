@@ -14,7 +14,28 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-5 mb-2 mb-xl-0">
-                <h2 class="logo-font text-black">Women's Sunglasses</h2>
+                {% if sale == 'True' %}
+                    {% if not gender %}
+                        <h2 class="logo-font text-black">Summer Sale</h2>
+                    {% else %}
+                        {% if gender == 'F' %}
+                            <h2 class="logo-font text-black">Women's Summer Sale</h2>
+                        {% else %}
+                            <h2 class="logo-font text-black">Men's Summer Sale</h2>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    {% if gender == 'F' %}
+                        <h2 class="logo-font text-black">Women's Sunglasses</h2>
+                    {% else %}
+                        <h2 class="logo-font text-black">Men's Sunglasses</h2>
+                    {% endif %}
+                {% endif %}
+                {% for brand in brand %}
+                    {% if brand is not None %}
+                        <h4 class="logo-font text-black">{{ brand.friendly_name }}</h4>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
         <div class="row">
