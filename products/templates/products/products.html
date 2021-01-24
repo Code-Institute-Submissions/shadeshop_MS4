@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
+    <div class="container-fluid header-container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -10,10 +10,55 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                {{ products }}
+            <div class="col text-center mt-5 mb-2 mb-xl-0">
+                <h2 class="logo-font text-black">Women's Sunglasses</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row justify-content-center">
+                    {% for product in products %}
+                        <div class="col-12 col-md-6 col-xl-5 pb-5 p-xl-5">
+                            <div class="card h-100 border-0">
+                                <div class="img_wrap">
+                                    {% if product.image %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.image_credit }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
+                                    </a>
+                                    {% endif %}
+                                    <div class="img_description text-center d-flex align-items-center">
+                                        <div class="my-auto p-2">
+                                            <h4 class="font-weight-bold mb-2 mb-md-2 mb-lg-4">{{ product.name }}</h4>
+                                            <div class="product_desc"><p class="font-weight-bold">{{ product.description }}</p></div>
+                                            {% if product.rating %}
+                                                <p class="mb-0"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p><br>
+                                            {% else %}
+                                                <p class="mb-0">No Rating</p><br>
+                                            {% endif %}
+                                            <div>
+                                                <a href="" class="bg-success text-uppercase p-2 product_button font-weight-bold">View Product</a>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body pb-0">
+                                    <div class="row">
+                                        <div class="col-8 p-0"><p class="mb-0 font-weight-bold">{{ product.name }}</p></div>
+                                        <div class="col-4 p-0"><p class="mb-0 text-right font-weight-bold">€{{ product.price }}</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
