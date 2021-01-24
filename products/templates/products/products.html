@@ -26,11 +26,11 @@
                             <div class="card h-100 border-0">
                                 <div class="img_wrap">
                                     {% if product.image %}
-                                    <a href="">
+                                    <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.image_credit }}">
                                     </a>
                                     {% else %}
-                                    <a href="">
+                                    <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
                                     </a>
                                     {% endif %}
@@ -44,7 +44,7 @@
                                                 <p class="mb-0">No Rating</p><br>
                                             {% endif %}
                                             <div>
-                                                <a href="" class="bg-success text-uppercase p-2 product_button font-weight-bold">View Product</a>
+                                                <a href="{% url 'product_detail' product.id %}" class="bg-success text-uppercase p-2 product_button font-weight-bold">View Product</a>
                                             </div> 
                                         </div>
                                     </div>
@@ -52,7 +52,11 @@
                                 <div class="card-body pb-0">
                                     <div class="row">
                                         <div class="col-8 p-0"><p class="mb-0 font-weight-bold">{{ product.name }}</p></div>
+                                        {% if product.sale == True %}
+                                        <div class="col-4 p-0"><p class="mb-0 text-right font-weight-bold"><s>€{{ product.price }}</s><strong class="text-danger"> €{{ product.saleprice }}</strong></p></div>
+                                        {% else %}
                                         <div class="col-4 p-0"><p class="mb-0 text-right font-weight-bold">€{{ product.price }}</p></div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -62,4 +66,13 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+<script>
+    $(".img_description").click(function() {
+    window.location = $(this).find("a").attr("href"); 
+    return false;
+    });
+</script>
 {% endblock %}
