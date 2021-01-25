@@ -36,15 +36,15 @@
     </head>
     <body>
         <header class="container-fluid fixed-top">
-            <div id="headernav" class="row py-2">
+            <div id="headernav" class="row d-flex align-items-center py-2 py-lg-4">
                 <div class="col-12 col-lg-3 my-auto py-1 py-lg-0 text-lg-left d-none d-lg-flex">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
                         <h1 class="text-uppercase logo-font text-black my-0"><strong>ShadeShop</strong></h1>
                     </a>
                 </div>
                 <div class="col-12 col-lg-6 px-0 py-1 py-lg-0">
-                    <nav class="navbar navbar-expand-lg navbar-light text-center">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                    <nav class="navbar navbar-expand-lg navbar-light text-center px-0">
+                        <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#main-nav"
                             aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -70,7 +70,7 @@
                                     <div><i class="fas fa-user fa-2x"></i></div>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <div class="dropdown-menu border-0 py-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                 <a href="" class="dropdown-item">Product Management</a>
