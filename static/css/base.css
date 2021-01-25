@@ -152,6 +152,11 @@ body {
    overflow: hidden; 
 }
 
+/*-------------------------------Product detail*/
+
+.image-container:hover {
+    cursor: zoom-in;
+}
   
 /* -------------------------------- Media Queries */
 
