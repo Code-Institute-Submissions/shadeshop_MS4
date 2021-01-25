@@ -152,10 +152,40 @@ body {
    overflow: hidden; 
 }
 
+.imagecard {
+    cursor: pointer;
+}
+
+.imagecard:hover {
+    color: #000;
+    font-weight: 700;
+}
+
+.sort-select-wrapper {
+    width: 50%;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #fff;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 /*-------------------------------Product detail*/
 
 .image-container:hover {
     cursor: zoom-in;
+}
+
+.product-details-container a:hover {
+    text-decoration: none;
 }
   
 /* -------------------------------- Media Queries */
@@ -239,7 +269,11 @@ body {
         -webkit-line-clamp: 3;   
         -webkit-box-orient: vertical;     
         overflow: hidden; 
-}
+    }
+
+    .sort-select-wrapper {
+    width: 75%;
+    }
 
 }
 

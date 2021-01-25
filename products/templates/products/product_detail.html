@@ -35,7 +35,14 @@
             </div>
             <div class="col-12 col-md-6 col-lg-5 col-xl-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <h2 class="mb-2 pt-lg-3 mb-lg-4">{{ product.name }}</h2>
+                    {% if product.brand %}
+                    <a href="{% url 'products' %}?brand={{ product.brand.id }}&gender={{ product.gender }}"><h2 class="mb-2 pt-lg-3 text-black font-weight-bold">{{ product.brand.friendly_name }}</h2></a>
+                    <h4 class="mb-2 mb-lg-4">{{ product.name }}</h4>
+                    {% else %}
+                    <h2 class="mb-2 pt-lg-3 mb-lg-4 font-weight-bold">{{ product.name }}</h2>
+                    {% endif %}
+
+                    
                     {% if product.sale == True %}
                         <p class="lead mb-0 mb-lg-2 text-left font-weight-bold"><s>€{{ product.price }}</s><strong class="text-danger"> €{{ product.saleprice }}</strong></p>
                     {% else %}
@@ -54,6 +61,7 @@
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
 <!--Code taken from http://www.jacklmoore.com/zoom/-->
 <script>
     $(document).ready(function () {

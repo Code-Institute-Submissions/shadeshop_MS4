@@ -2,6 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
+
 from .models import Product, Brand
 
 
@@ -17,8 +19,25 @@ def all_products(request):
     gender = None
     brand = None
     sale = None
+    sort = None
+    direction = None
 
     if request.GET:
+        # Return Products by Sort Request
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'brand':
+                sortkey = 'brand__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+        # Return Products based on selection through navbar
         if 'sale' in request.GET:
             sale = request.GET['sale']
             if 'gender' in request.GET:
@@ -37,7 +56,7 @@ def all_products(request):
                     brand = brands.filter(id=brand)
                 else:
                     products = products.filter(gender__in=gender)
-
+        # return products based on user search input
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -48,15 +67,16 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'products': products,
         'search_term': query,
         'brand': brand,
         'gender': gender,
         'sale': sale,
+        'current_sorting': current_sorting,
     }
-
-    print(context)
 
     return render(request, 'products/products.html', context)
 

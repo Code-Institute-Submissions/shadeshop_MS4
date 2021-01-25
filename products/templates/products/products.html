@@ -27,8 +27,10 @@
                 {% else %}
                     {% if gender == 'F' %}
                         <h2 class="logo-font text-black">Women's Sunglasses</h2>
-                    {% else %}
+                    {% elif gender == 'M' %}
                         <h2 class="logo-font text-black">Men's Sunglasses</h2>
+                    {% else %}
+                        <h2 class="logo-font text-black">Search Results</h2>
                     {% endif %}
                 {% endif %}
                 {% for brand in brand %}
@@ -39,61 +41,146 @@
             </div>
         </div>
         <div class="row">
+            
+        </div>
+        <div class="row">
             <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
+                <div class="row mt-1 mb-2 justify-content-center">
+                    <div class="col-6 col-xl-5 p-0 pl-xl-5">
+                        <p class="text-muted mt-3">
+                            {{ products|length }} Products{% if search_term %} found for
+                            <strong>"{{ search_term }}"</strong>{% endif %}
+                        </p>
+                    </div>
+                    <div class="col-6 col-xl-5 my-auto d-flex justify-content-end p-0 pr-xl-5">
+                        <div class="sort-select-wrapper">
+                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z) </option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                                <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand (A-Z)</option>
+                                <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Brand (Z-A)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="row justify-content-center">
                     {% for product in products %}
-                        <div class="col-12 col-md-6 col-xl-5 pb-5 p-xl-5">
-                            <div class="card h-100 border-0">
-                                <div class="img_wrap">
-                                    {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.image_credit }}">
-                                    </a>
-                                    {% else %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
-                                    </a>
-                                    {% endif %}
-                                    <div class="img_description text-center d-flex align-items-center">
-                                        <div class="my-auto p-2">
-                                            <h4 class="font-weight-bold mb-2 mb-md-2 mb-lg-4">{{ product.name }}</h4>
-                                            <div class="product_desc"><p class="font-weight-bold">{{ product.description }}</p></div>
-                                            {% if product.rating %}
-                                                <p class="mb-0"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p><br>
-                                            {% else %}
-                                                <p class="mb-0">No Rating</p><br>
-                                            {% endif %}
-                                            <div>
-                                                <a href="{% url 'product_detail' product.id %}" class="bg-success text-uppercase p-2 product_button font-weight-bold">View Product</a>
-                                            </div> 
+                    <div class="col-12 col-md-6 col-xl-5 pb-5 p-xl-5">
+                        <div class="card h-100 border-0">
+                            <div class="img_wrap">
+                                {% if product.image %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}"
+                                        alt="{{ product.image_credit }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.jpg"
+                                        alt="{{ product.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="img_description text-center d-flex align-items-center">
+                                    <div class="my-auto p-2">
+                                        <h4 class="font-weight-bold mb-2 mb-md-2 mb-lg-4">{{ product.name }}</h4>
+                                        <div class="product_desc">
+                                            <p class="font-weight-bold">{{ product.description }}</p>
+                                        </div>
+                                        {% if product.rating %}
+                                        <p class="mb-0"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</p><br>
+                                        {% else %}
+                                        <p class="mb-0">No Rating</p><br>
+                                        {% endif %}
+                                        <div>
+                                            <a href="{% url 'product_detail' product.id %}"
+                                                class="bg-success text-uppercase p-2 product_button font-weight-bold">View
+                                                Product</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-body pb-0">
-                                    <div class="row">
-                                        <div class="col-8 p-0"><p class="mb-0 font-weight-bold">{{ product.name }}</p></div>
-                                        {% if product.sale == True %}
-                                        <div class="col-4 p-0"><p class="mb-0 text-right font-weight-bold"><s>€{{ product.price }}</s><strong class="text-danger"> €{{ product.saleprice }}</strong></p></div>
+                            </div>
+                            <div class="card-body pb-0 pt-1">
+                                <div class="row imagecard">
+                                    <div class="col-8 p-0">
+                                        {% if product.brand %}
+                                        <p class="mb-0 font-weight-bold">{{ product.brand.friendly_name }}</p>
+                                        <small class="mb-0">{{ product.name }}</small>
                                         {% else %}
-                                        <div class="col-4 p-0"><p class="mb-0 text-right font-weight-bold">€{{ product.price }}</p></div>
+                                        <p class="mb-0 font-weight-bold">{{ product.name }}</p>
                                         {% endif %}
                                     </div>
+                                    {% if product.sale == True %}
+                                    <div class="col-4 p-0">
+                                        <p class="mb-0 text-right font-weight-bold"><s>€{{ product.price }}</s><br><strong
+                                                class="text-danger"> €{{ product.saleprice }}</strong></p>
+                                    </div>
+                                    {% else %}
+                                    <div class="col-4 p-0 d-flex align-items-center justify-content-end">
+                                        <p class="mb-0 text-right font-weight-bold">€{{ product.price }}</p>
+                                    </div>
+                                    {% endif %}
+                                    <a href="{% url 'product_detail' product.id %}" class="d-none"></a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </div>
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>	
+    </div>
 {% endblock %}
 
 {% block postloadjs %}
-<script>
-    $(".img_description").click(function() {
-    window.location = $(this).find("a").attr("href"); 
-    return false;
-    });
-</script>
+    {{ block.super }}
+    <!--Makes Entire Image Description & Card Body Link to Product detail-->
+    <script>
+        $(".img_description").click(function () {
+            window.location = $(this).find("a").attr("href");
+            return false;
+        });
+
+        $(".imagecard").click(function () {
+            window.location = $(this).find("a").attr("href");
+            return false;
+        });
+    </script>
+    <!--Scroll to top button-->
+    <script type="text/javascript">
+        $('.btt-link').click(function (e) {
+            window.scrollTo(0, 0)
+        })
+    </script>
+    <!--JQuery for Sort Selector Functionality-->
+    <script type="text/javascript">
+        $('#sort-selector').change(function () {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if (selectedVal != "reset") {
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
