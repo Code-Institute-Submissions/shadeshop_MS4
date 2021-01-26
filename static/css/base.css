@@ -202,7 +202,7 @@ body {
     background-color: #fff;
 }
 
-.btt-link {
+.btt-link, .update-link, .remove-item {
     cursor: pointer;
 }
 
@@ -215,6 +215,10 @@ body {
 .product-details-container a:hover {
     text-decoration: none;
 }
+
+/********************Shoppping Bag*/
+
+
   
 /* -------------------------------- Media Queries */
 
