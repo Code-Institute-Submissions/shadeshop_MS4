@@ -50,6 +50,10 @@ body {
     font-family: 'Bungee', cursive;
 }
 
+.btn-success {
+    font-family: 'Bungee', cursive;
+}
+
 .home-button:hover,
 .home-button:active,
 .home-button:focus,
