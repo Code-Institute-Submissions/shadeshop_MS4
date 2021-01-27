@@ -218,7 +218,20 @@ body {
 
 /********************Shoppping Bag*/
 
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
 
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
   
 /* -------------------------------- Media Queries */
 
