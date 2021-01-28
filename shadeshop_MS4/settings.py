@@ -172,6 +172,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 FREE_DELIVERY_THRESHOLD = 70
 STANDARD_DELIVERY_PERCENTAGE = 5
 
+# Stripe Details and Keys
+STRIPE_CURRENCY = 'eur'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+
 # Setup Connection Variables for AWS server for image storage
 BUCKET_NAME = "shadeshop"
 AWS_KEY_ID = os.environ.get("AWS_KEY_ID")
