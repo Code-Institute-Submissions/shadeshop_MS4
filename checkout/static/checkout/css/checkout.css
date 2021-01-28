@@ -35,3 +35,8 @@
     color: #000;
     border: 1px solid #000;
 }
+
+.order-confirmation-wrapper {
+    max-height: 250px;
+    overflow-x: hidden;
+}
