@@ -179,6 +179,9 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
+# Contact Email
+DEFAULT_FROM_EMAIL = 'shadeshop@example.com'
+
 # Setup Connection Variables for AWS server for image storage
 BUCKET_NAME = "shadeshop"
 AWS_KEY_ID = os.environ.get("AWS_KEY_ID")
