@@ -1,6 +1,7 @@
 from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Product, Brand
+from django.core.exceptions import ValidationError
 
 
 class ProductForm(forms.ModelForm):
@@ -19,3 +20,13 @@ class ProductForm(forms.ModelForm):
         self.fields['brand'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+    # Ensure Sale Items have sale price
+    def clean(self):
+        cleaned_data = super(ProductForm, self).clean()
+        sale = cleaned_data.get("sale")
+        saleprice = cleaned_data.get("saleprice")
+
+        if sale and saleprice is None:
+            msg = "Sale items must have sale price"
+            self.add_error('saleprice', msg)
