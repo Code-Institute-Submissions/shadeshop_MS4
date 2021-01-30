@@ -19,7 +19,7 @@
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-5 mb-2 mb-xl-0">
+            <div class="col text-center mt-3 mt-lg-5 mb-2 mb-xl-0">
                 <!--change header based on type of products to be displayed-->
                 {% if sale == 'True' %}
                     {% if not gender %}
@@ -80,7 +80,7 @@
                 <!--Product display-->
                 <div class="row justify-content-center">
                     {% for product in products %}
-                    <div class="col-12 col-md-6 col-xl-5 pb-5 p-xl-5">
+                    <div class="col-12 col-md-6 col-xl-5 px-0 px-md-3 pb-5 p-xl-5">
                         <div class="card h-100 border-0">
                             <div class="img_wrap">
                                 {% if product.image %}
@@ -94,9 +94,10 @@
                                         alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
+                                <!--Product details available on hover-->
                                 <div class="img_description text-center d-flex align-items-center">
                                     <div class="my-auto p-2">
-                                        <h4 class="font-weight-bold mb-2 mb-md-2 mb-lg-4">{{ product.name }}</h4>
+                                        <h5 class="font-weight-bold mb-2 mb-md-2 mb-lg-4">{{ product.name }}</h5>
                                         <div class="product_desc">
                                             <p class="font-weight-bold">{{ product.description }}</p>
                                         </div>
@@ -107,7 +108,7 @@
                                         {% endif %}
                                         <div>
                                             <a href="{% url 'product_detail' product.id %}"
-                                                class="bg-success text-uppercase p-2 product_button font-weight-bold">View
+                                                class="bg-success p-2 product_button font-weight-bold">View
                                                 Product</a>
                                         </div>
                                         <!--Edit and Delete links if super user-->
@@ -122,6 +123,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--Product detail beneath image-->
                             <div class="card-body pb-0 pt-1">
                                 <div class="row imagecard">
                                     <div class="col-8 p-0">

@@ -106,3 +106,36 @@
     border-color: #dc3545;
     border-radius: 0;
 }
+
+/* -------------------------------- Media Queries */
+
+@media (max-width: 767.98px) {
+    .product_desc p {
+        display: -webkit-box;   
+        -webkit-line-clamp: 3;   
+        -webkit-box-orient: vertical;     
+        overflow: hidden; 
+    }
+
+    .sort-select-wrapper {
+    width: 75%;
+    }
+
+}
+
+/* on galaxy fold devices only xxs screen size */
+@media (max-width: 330px) {
+
+    .product_desc p {
+        display: -webkit-box;   
+        -webkit-line-clamp: 1;   
+        -webkit-box-orient: vertical;     
+        overflow: hidden; 
+    }
+
+    .product_button {
+    font-size: 1rem;
+}
+
+    
+}
