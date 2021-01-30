@@ -29,8 +29,8 @@
                                     <tr>
                                         <th class="pl-3" scope="col" colspan="2">Product Info</th>
                                         <th class="text-center" scope="col">Qty</th>
-                                        <th class="text-right" scope="col">Subtotal</th>
-                                        <th scope="col">Add to Bag</th>
+                                        <th class="text-center" scope="col">Subtotal</th>
+                                        <th class="text-center" scope="col">Add to Bag</th>
                                     </tr>
                                 </thead>
                                 {% for item in list.wishitems.all %}
@@ -77,10 +77,10 @@
                                             <a class="update-link text-success float-right"><small>Update</small></a>                                       
                                             <a class="remove-item text-danger" id="remove_{{ item.product.id }}"><small>Remove</small></a>
                                         </td>
-                                        <td class="py-3 text-right">
+                                        <td class="py-3 text-center">
                                             <p class="my-0">€{{ item.wishitem_total }}</p>
                                         </td>
-                                        <td>
+                                        <td class="py-3 text-center">
                                             <form class="form" action="{% url 'add_to_bag' item.product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <input type="submit" class="btn btn-success rounded-0 text-uppercase mt-5" value="Add to Bag">
