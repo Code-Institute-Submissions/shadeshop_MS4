@@ -68,6 +68,10 @@ body {
     color: #000 !important;
 }
 
+.navbar-toggler {
+    border-color: rgba(0,0,0,0.75)!important;
+}
+
 .nav-link {
     font-size: 1.25rem;
 }
