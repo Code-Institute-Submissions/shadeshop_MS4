@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 
 from products.models import Product
+from wishlist.models import WishLineItem, Wishlist
+from profiles.models import UserProfile
 
 # Bag Views
 
@@ -26,6 +28,14 @@ def add_to_bag(request, item_id):
     else:
         bag[item_id] = quantity
         messages.success(request, f'Added {product.name} to your bag!')
+
+    # remove product from wishlist if added from it
+    if redirect_url == '/wishlist/':
+        profile = get_object_or_404(UserProfile, user=request.user)
+        wishlist = Wishlist.objects.get(user_profile=profile)
+        wishitems = WishLineItem.objects.get(product=product, wishlist=wishlist.id)
+        wishitems.delete()
+        messages.success(request, f'Removed {product.name} from your wishlist!')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
