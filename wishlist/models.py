@@ -10,7 +10,7 @@ from profiles.models import UserProfile
 
 class Wishlist(models.Model):
     wishlist_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False, blank=False, related_name='wishlist', default=1)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False, blank=False, related_name='wishlists', default=1)
     item_count = models.IntegerField(null=True, blank=False)
 
     def _generate_wishlist_number(self):
@@ -37,7 +37,7 @@ class Wishlist(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'Wishlist {self.id} for user {self.user_profile.user}'
+        return self.wishlist_number
 
 
 class WishLineItem(models.Model):

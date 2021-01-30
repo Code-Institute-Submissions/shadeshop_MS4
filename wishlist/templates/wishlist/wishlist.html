@@ -21,7 +21,90 @@
         </div>
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
-              
+                {% for list in wishlist %}
+                    {% if list.item_count and list.item_count > 0 %}
+                        <div class="table-responsive rounded">
+                            <table class="table table-sm table-borderless">
+                                <thead class="text-black">
+                                    <tr>
+                                        <th class="pl-3" scope="col" colspan="2">Product Info</th>
+                                        <th class="text-center" scope="col">Price</th>
+                                        <th class="text-center" scope="col">Qty</th>
+                                        <th class="text-right" scope="col">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                {% for item in list.wishitems.all %}
+                                    <tr>
+                                        <td class="p-3 w-25">
+                                        {% if item.product.image %}
+                                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                        {% else %}
+                                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.product.name }}">
+                                        {% endif %}
+                                        </td>
+                                        <td class="py-3">
+                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            {% if item.product.sale == True %}
+                                                <p class="my-0"><s>€{{ item.product.price }}</s></p>
+                                                <p class="my-0 text-danger">€{{ item.product.saleprice }}</p>
+                                            {% else %}
+                                                <p class="my-0">€{{ item.product.price }}</p>
+                                            {% endif %}
+                                        </td>
+                                        <td class="py-3 w-25">
+                                            <form class="form update-form form-bag" method="POST" action="">
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <button class="decrement-qty btn btn-sm rounded-0" 
+                                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                                <span>
+                                                                    <i class="fas fa-minus fa-sm"></i>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                        <input class="form-control form-control-sm qty_input" type="number"
+                                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                            data-item_id="{{ item.item_id }}"
+                                                            id="id_qty_{{ item.item_id }}">
+                                                        <div class="input-group-append">
+                                                            <button class="increment-qty btn btn-sm rounded-0"
+                                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                                <span>
+                                                                    <i class="fas fa-plus fa-sm"></i>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form> 
+                                            <a class="update-link text-success float-right"><small>Update</small></a>                                       
+                                            <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                        </td>
+                                        <td class="py-3 text-right">
+                                            <p class="my-0">€{{ item.wishitem_total }}</p>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center">
+                            <p>There are no items on your wishlist just now, get shopping!</p>
+                            <a href="{% url 'products' %}" class="btn btn-black rounded-0 btn-lg mt-1">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
