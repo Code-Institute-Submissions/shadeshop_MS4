@@ -1,10 +1,10 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown px-lg-2">
-            <a class="logo-font font-weight-bold nav-link text-black px-2" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black px-2" href="#" id="women-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Women
             </a>
-            <div class="dropdown-menu border-0 rounded-0 text-center py-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0 rounded-0 text-center py-0" aria-labelledby="women-products-link">
                 <a href="{% url 'products' %}?gender=F" class="dropdown-item font-weight-bold">All Brands</a>
                 <a href="{% url 'products' %}?brand=1&gender=F" class="dropdown-item font-weight-bold">Ray-Ban</a>
                 <a href="{% url 'products' %}?brand=2&gender=F" class="dropdown-item font-weight-bold">Oakley</a>
@@ -13,12 +13,11 @@
                 <a href="{% url 'products' %}?brand=5&gender=F" class="dropdown-item font-weight-bold">Prada</a>
             </div>
         </li>
-
         <li class="nav-item dropdown px-lg-2">
-            <a class="logo-font font-weight-bold nav-link text-black px-2" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black px-2" href="#" id="men-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Men
             </a>
-            <div class="dropdown-menu border-0 rounded-0 text-center font-weight-bold py-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0 rounded-0 text-center font-weight-bold py-0" aria-labelledby="men-products-link">
                 <a href="{% url 'products' %}?gender=M" class="dropdown-item font-weight-bold">All Brands</a>
                 <a href="{% url 'products' %}?brand=1&gender=M" class="dropdown-item font-weight-bold">Ray-Ban</a>
                 <a href="{% url 'products' %}?brand=2&gender=M" class="dropdown-item font-weight-bold">Oakley</a>
@@ -27,18 +26,15 @@
                 <a href="{% url 'products' %}?brand=5&gender=M" class="dropdown-item font-weight-bold">Prada</a>
             </div>
         </li>
-
         <li class="nav-item dropdown px-lg-2">
-            <a class="logo-font font-weight-bold nav-link text-black px-2" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black px-2" href="#" id="sale-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Summer Sale
             </a>
-            <div class="dropdown-menu border-0 rounded-0 text-center font-weight-bold py-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0 rounded-0 text-center font-weight-bold py-0" aria-labelledby="sale-products-link">
                 <a href="{% url 'products' %}?sale=True" class="dropdown-item font-weight-bold">All Sale</a>
                 <a href="{% url 'products' %}?gender=F&sale=True" class="dropdown-item font-weight-bold">Women</a>
                 <a href="{% url 'products' %}?gender=M&sale=True" class="dropdown-item font-weight-bold">Men</a>
             </div>
         </li>
-
-        
     </ul>
 </div>
