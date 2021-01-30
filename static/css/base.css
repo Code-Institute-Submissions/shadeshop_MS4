@@ -140,7 +140,11 @@ body {
 	z-index: -1;
 }
 
+/*-------------------------------Shopping Bag & Wishlist*/
 
+.remove-item, .update-link {
+    cursor: grab;
+}
 
 /*-------------------------------Bootstrap Toasts */
 
