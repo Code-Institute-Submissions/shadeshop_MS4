@@ -42,7 +42,7 @@ def add_to_wishlist(request, product_id):
     if wishitems:
         wishitems.quantity = quantity + wishitems.quantity 
         wishitems.save()
-        messages.success(request, f'Updated {wishitems.product.name} quantity in your wishlist!')
+        messages.info(request, f'Updated {wishitems.product.name} quantity in your wishlist!')
     else:
         new_wishitem = WishLineItem(
             wishlist=wishlist,
@@ -50,7 +50,7 @@ def add_to_wishlist(request, product_id):
             quantity=quantity,
         )
         new_wishitem.save()
-        messages.success(request, f'Added {wishitems.product.name} to your wishlist!')
+        messages.info(request, f'Added {wishitems.product.name} to your wishlist!')
 
     return redirect(redirect_url)
 
@@ -61,7 +61,7 @@ def remove_from_wishlist(request, product_id):
     try:
         wish = get_object_or_404(WishLineItem, product=product_id)
         wish.delete()
-        messages.success(request, f'Removed {wish.product.name} from your wishlist!')
+        messages.info(request, f'Removed {wish.product.name} from your wishlist!')
         return HttpResponse(status=200)
 
     except Exception as e:
@@ -78,9 +78,9 @@ def adjust_wishlist(request, product_id):
     if quantity > 0:
         wish.quantity = quantity
         wish.save()
-        messages.success(request, f'Updated {wish.product.name} quantity!')
+        messages.info(request, f'Updated {wish.product.name} quantity!')
     else:
         wish.delete()
-        messages.success(request, f'Removed {wish.product.name} from your wishlist!')
+        messages.info(request, f'Removed {wish.product.name} from your wishlist!')
 
     return redirect(reverse('view_wishlist'))
