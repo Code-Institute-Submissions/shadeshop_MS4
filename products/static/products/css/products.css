@@ -78,6 +78,10 @@
     text-decoration: none;
 }
 
+.hiddenbutton {
+    background-color: #fff;
+    border: none;
+}
 
 /* Product Form */
 
@@ -106,6 +110,7 @@
     border-color: #dc3545;
     border-radius: 0;
 }
+
 
 /* -------------------------------- Media Queries */
 

@@ -106,6 +106,12 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
+                    <form class="form" action="{% url 'add_to_wishlist' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="hiddenbutton mt-2"><i class="fas fa-heart fa-lg text-danger"></i> Add to Wishlist</button>
+                        <input type="hidden" name="quantity" value="1" id="hidden_quanity">
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
                 </div>
             </div>
         </div>

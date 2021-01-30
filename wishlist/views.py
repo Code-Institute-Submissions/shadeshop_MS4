@@ -24,7 +24,7 @@ def view_wishlist(request):
 
     return render(request, template, context)
 
-
+@login_required
 def add_to_wishlist(request, product_id):
     """ Add a quantity of the specified product to the shopping bag """
 
@@ -42,6 +42,7 @@ def add_to_wishlist(request, product_id):
     if wishitems:
         wishitems.quantity = quantity + wishitems.quantity 
         wishitems.save()
+        messages.success(request, f'Updated {wishitems.product.name} quantity in your wishlist!')
     else:
         new_wishitem = WishLineItem(
             wishlist=wishlist,
@@ -49,10 +50,11 @@ def add_to_wishlist(request, product_id):
             quantity=quantity,
         )
         new_wishitem.save()
+        messages.success(request, f'Added {wishitems.product.name} to your wishlist!')
 
     return redirect(redirect_url)
 
-
+@login_required
 def remove_from_wishlist(request, product_id):
     """Remove the item from the shopping bag"""
 
@@ -66,7 +68,7 @@ def remove_from_wishlist(request, product_id):
         messages.error(request, f'Error removing item: {e}.')
         return HttpResponse(status=500)
 
-
+@login_required
 def adjust_wishlist(request, product_id):
     """Adjust the quantity of the specified product to the specified amount"""
 
