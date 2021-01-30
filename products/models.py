@@ -28,5 +28,9 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     image_credit = models.CharField(max_length=254, null=True, blank=True)
 
+    def clean(self):
+        if self.sale and self.saleprice is None:
+            raise ValidationError("Sale items must have sale price")
+
     def __str__(self):
         return self.name
