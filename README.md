@@ -17,13 +17,10 @@ The site has been developed for educational and assessment purposes, all work ha
   - [Design](#design)
   - [Wireframes](#wireframes)
   - [Database](#database)
-  - [Data Schema](#data-schema)
 </details>
 
 **<details><summary> Features</summary>**
-  - [Features used](#features-used)
-  - [To do list](#to-do-list)
-  - [Status](#status)
+  - [Features](#features)
 </details>
 
 **<details><summary> Technologies</summary>**
@@ -42,14 +39,10 @@ The site has been developed for educational and assessment purposes, all work ha
 </details>
 
 **<details><summary> Credits</summary>**
-  - [Content](#content)
   - [Media](#media)
   - [Acknowledgements](#acknowledgements)
 </details>
 
-**<details><summary> Contact</summary>**
-  - [Contact details](#contact-details) 
-</details>
 
 # **User Experience**
 
@@ -93,7 +86,6 @@ I employed a Relational Database to store the collection models needed for the s
 
 As per the project requirements I included a number of additional models not included in the CI Boutique Ado example site these included the Wishlist, Wishlistitem and Review models. The wish list models were for a seperate app 'Wishlist' and the review model was an inline model to the Products model within the Products app. 
 
-### Data schema
 
 # **Features**
 
@@ -592,8 +584,92 @@ The project used Amazon Web Services s3, which is a cloud-based storage service,
 </p>
 </details>
 
-# **Deployment**
+# **Testing**
+
+### **Code Validation**
+
+Each page was ran through the W3C HTML validator, the stylesheet through the CSS validator and the javascript files through JS hint. A summary of the errors and warning by page are outlined below. 
+
+<img src="readme/media/codeValidation.png">
+
+There was additional warnings for the JavaScript files which highlighted undefined functions and variables, however these are defined in external JS libraries read in prior to the project JS files. There was also some warnings in relation to Internet Explorer compatibility which could not be addressed.
+
+### **Browser Compatibility**
+
+The live website, hosted on gitpages, has been opened and tested on multiple browsers for responsives and intended appearance. Browers tested included:
+
+* Google Chrome
+* Safari
+* Microsoft Edge
+* Internet Explorer
+* Firefox
+* Opera
+
+Overall the website worked well and appeared as intended on different sizes across different browsers. 
+
+### **Responsiveness**
+
+The website has been tested across multiple screen sizes using [Google Chrome developer tools](https://developers.google.com/web/tools/chrome-devtools) for a range of screen sizes, portrait and landscape, including:
+
+- Moto G4
+- Galaxy S5
+- Pixel 2
+- Pixel 2 XL
+- iPhone 5 SE
+- iPhone 6/7/8
+- iPhone 6/7/8 Plus
+- iPhone X
+- iPad
+- iPad Pro
+
+The screen was also adjusted through various sizes and breakpoints with the responsive option in developer tools. The website was also opened and checked on Samsung A20 & iPhone SE mobile devices as well as Dell xps 15, Lenovo Think Pad and Apple Macbook. The responsiveness was also tested on the browsers outlined above with no noted issues. Overall the website appeared as intended across each screen type. There were some intial errors particularly on iPhone5 screen size (320px width) with overflows of titles. However, an additional media query was added to address this and all screens less than 400px approximately. 
+
+### **User Stories**
+
+All user stories were tested as shown below and found [here](readme/files/userStoriesTesting.pdf)
+
+<img src="readme/media/userTesting.png">
+
+#### Media & Credits
+
+- Code Institue Boutique Ado Example project. Though I have tried to make the project my own as much as possible I still relied heavily on this example project. 
+- General site content and product descriptions was created by me.
+- Images were sourced on Unsplash, the credit for each image from Unpslash given under the image on the product details page and outlined below.
+
+* pp100001.jpg -Photo by Laura Chouette on Unsplash
+* pp100002.jpg -Photo by Oleksandr Koval on Unsplash
+* pp100003.jpg -Photo by Ali Pazani on Unsplash
+* pp100004.jpg -Photo by Kumpan Electric on Unsplash
+* pp100005.jpg -Photo by Sara Dabaghian on Unsplash
+* pp100006.jpg -Photo by Omid Armin on Unsplash
+* pp100007.jpg -Photo by Brooke Cagle on Unsplash
+* pp100008.jpg -Photo by Charles Deluvio on Unsplash
+* pp100009.jpg -Photo by Michele Seghieri on Unsplash
+* pp100010.jpg -Photo by yang miao on Unsplash
+* pp100011.jpg -Photo by Jakayla Toney on Unsplash
+* pp100012.jpg -Photo by Ashley Byrd on Unsplash
+* pp100013.jpg -Photo by Gursimrat Ganda on Unsplash
+* pp100014.jpg -Photo by Cameron Venti on Unsplash
+* pp100015.jpg -Photo by Scorpio Creative on Unsplash
+* pp100016.jpg -Photo by Apostolos Vamvouras on Unsplash
+* pp100017.jpg -Photo by Greg Rosenke on Unsplash
+* pp100018.jpg -Photo by Suka Endara on Unsplash
+* pp100019.jpg -Photo by Suka Endara on Unsplash
+* pp100020.jpg -Photo by Chandrachur Lahiri on Unsplash
+* pp100021.jpg -Photo by Habib Dadkhah on Unsplash
+* pp100022.jpg -Photo by christian buehner on Unsplash
+* pp100023.jpg -Photo by Carlos Bryan on Unsplash
+* pp100024.jpg -Photo by vahid kanani on Unsplash
+
+- The other images were found through [shutterstock](https://www.shutterstock.com/home) using a free trial.
 
 
+#### Acknowledgments
 
+- My Mentor, Precious for his continuous help and support throughout the project.
 
+- The help and support received from the tutors at [Code Institute](https://codeinstitute.net/).
+
+- The [Code Institute](https://codeinstitute.net/) Slack Community.
+
+- Friends & Family for continuous feedback and support.
