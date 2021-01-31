@@ -199,3 +199,13 @@ def add_review(request, product_id):
         else:
             messages.error(
                 request, 'Failed to add review. Please ensure the form is valid.')
+
+
+@login_required
+def delete_review(request, review_id):
+    """ Delete a product from the store """
+    review = get_object_or_404(Review, pk=review_id)
+    product = review.product
+    review.delete()
+    messages.success(request, 'Review deleted!')
+    return redirect(reverse('product_detail', args=[product.id]))
