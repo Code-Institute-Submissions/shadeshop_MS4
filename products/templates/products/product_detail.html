@@ -115,6 +115,74 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <h5 class="logo-font text-black">Product Reviews</h5>
+                <hr>
+                {% for item in product.review.all %}
+                <a class="text-black collapselink" data-toggle="collapse" href="#review{{ item.id }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <div class="row">
+                        <div class="col-6">
+                            {% if item.rating == 1 %}
+                            <span>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </span>
+                            {% elif item.rating == 2 %}
+                            <span>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </span>
+                            {% elif item.rating == 3 %}
+                            <span>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </span>
+                            {% elif item.rating == 4 %}
+                            <span>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </span>
+                            {% elif item.rating == 5 %}
+                            <span>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </span>
+                            {% else %}
+                            <p>Not rating given</p>
+                            {% endif %} 
+                        </div>
+                        <div class="col-6 text-right">
+                            <p> <i class="fas fa-chevron-down"></i> <strong>Customer: </strong>{{ item.user_profile.user.username }}</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="collapse" id="review{{ item.id }}">
+                    <div class="card card-body bg-light rounded-0">
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
+                <hr>
+
+                {% endfor %}
+            </div>
+            
+        </div>
     </div>
 {% endblock %}
 

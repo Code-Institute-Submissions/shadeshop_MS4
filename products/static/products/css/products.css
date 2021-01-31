@@ -83,6 +83,12 @@
     border: none;
 }
 
+.collapselink:hover {
+    text-decoration: none;
+    background-color: #f9f9f9;
+    font-weight: 700;
+}
+
 /* Product Form */
 
 .btn-file {
