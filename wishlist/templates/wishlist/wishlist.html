@@ -23,7 +23,35 @@
             <div class="col-lg-10 offset-lg-1">
                 {% for list in wishlist %}
                     {% if list.item_count and list.item_count > 0 %}
-                        <div class="table-responsive rounded">
+                        <div class="d-block d-md-none">
+                            {% for item in list.wishitems.all %}
+                            <div class="row">
+                                <div class="col-12 col-sm-10 offset-sm-1 mb-2">
+                                    {% include "wishlist/product-image.html" %}
+                                </div>
+                                <div class="col-12 col-sm-10 offset-sm-1  mb-2">
+                                    {% include "wishlist/product-info.html" %}
+                                </div>
+                                <div class="col-12 col-sm-10 offset-sm-1 order-sm-last">
+                                    <p>€{{ item.wishitem_total }}</p>
+                                </div>
+                                <div class="col-10 offset-1 col-sm-10 offset-sm-1 ">
+                                    {% include "wishlist/quantity-input-form.html" %}
+                                </div>
+                                <div class="col-12 col-sm-10 offset-sm-1 text-center">
+                                    {% include "wishlist/addbag.html" %}
+                                </div>
+                            </div>
+                            <div class="row"><div class="col"><hr></div></div>
+                            {% endfor %}
+                            <!--scroll up to top button-->
+                            <div class="btt-button shadow-sm rounded-0 border border-black">
+                                <a class="btt-link d-flex h-100">
+                                    <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="table-responsive rounded d-none d-md-block">
                             <table class="table table-sm table-borderless">
                                 <thead class="text-black">
                                     <tr>
@@ -36,57 +64,19 @@
                                 {% for item in list.wishitems.all %}
                                     <tr>
                                         <td class="p-3 w-25">
-                                        {% if item.product.image %}
-                                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                                        {% else %}
-                                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.product.name }}">
-                                        {% endif %}
+                                            {% include "wishlist/product-image.html" %}
                                         </td>
                                         <td class="py-3">
-                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                           {% include "wishlist/product-info.html" %}
                                         </td>
                                         <td class="py-3 w-25">
-                                            <form class="form update-form form-bag" method="POST" action="{% url 'adjust_wishlist' item.product.id %}">
-                                                {% csrf_token %}
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <button class="decrement-qty btn btn-sm rounded-0" 
-                                                                data-item_id="{{ item.product.id }}" id="decrement-qty_{{ item.product.id }}">
-                                                                <span>
-                                                                    <i class="fas fa-minus fa-sm"></i>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        <input class="form-control form-control-sm qty_input" type="number"
-                                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                            data-item_id="{{ item.product.id  }}"
-                                                            id="id_qty_{{ item.product.id  }}">
-                                                        <div class="input-group-append">
-                                                            <button class="increment-qty btn btn-sm rounded-0"
-                                                                data-item_id="{{ item.product.id }}" id="increment-qty_{{ item.product.id  }}">
-                                                                <span>
-                                                                    <i class="fas fa-plus fa-sm"></i>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form> 
-                                            <a class="update-link text-success float-right"><small>Update</small></a>                                       
-                                            <a class="remove-item text-danger" id="remove_{{ item.product.id }}"><small>Remove</small></a>
+                                            {% include "wishlist/quantity-input-form.html" %}
                                         </td>
                                         <td class="py-3 text-center">
                                             <p class="my-0">€{{ item.wishitem_total }}</p>
                                         </td>
                                         <td class="py-3 text-center">
-                                            <form class="form" action="{% url 'add_to_bag' item.product.id %}" method="POST">
-                                                {% csrf_token %}
-                                                <input type="submit" class="btn btn-success rounded-0 text-uppercase mt-5" value="Add to Bag">
-                                                <input type="hidden" name="quantity" value="{{ item.quantity }}">
-                                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                            </form>
+                                            {% include "wishlist/addbag.html" %}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -132,4 +122,11 @@
          });
     })
 </script>
+
+<!--Scroll to top button-->
+    <script>
+        $('.btt-link').click(function (e) {
+            window.scrollTo(0, 0)
+        })
+    </script>
 {% endblock %}

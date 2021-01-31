@@ -36,13 +36,13 @@
                         </div>
                         {% for item in bag_items %}
                             <div class="row">
-                                <div class="col-12 col-sm-6 mb-2">
+                                <div class="col-12 col-sm-10 offset-sm-1 mb-2">
                                     {% include "bag/product-image.html" %}
                                 </div>
-                                <div class="col-12 col-sm-6 mb-2">
+                                <div class="col-12 col-sm-10 offset-sm-1 mb-2">
                                     {% include "bag/product-info.html" %}
                                 </div>
-                                <div class="col-12 col-sm-6 order-sm-last">
+                                <div class="col-12 col-sm-10 offset-sm-1 order-sm-last">
                                     {% if item.product.sale == True %}
                                         <p class="my-0 text-danger">Sale Price: €{{ item.product.saleprice }}</p>
                                         <p>Subtotal: €{{ item.product.saleprice | calc_subtotal:item.quantity }}</p>
@@ -51,7 +51,7 @@
                                         <p>Subtotal: €{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     {% endif %}
                                 </div>
-                                <div class="col-12 col-sm-6">
+                                <div class="col-12 col-sm-10 offset-sm-1 ">
                                     {% include "bag/quantity-form.html" %}
                                 </div>
                             </div>
