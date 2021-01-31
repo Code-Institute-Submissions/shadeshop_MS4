@@ -194,7 +194,7 @@ def add_review(request, product_id):
             new_review.user_profile = user_profile
             new_review.product = product
             new_review.save()
-            messages.success(request, 'Successfully added product review!')
+            messages.info(request, 'Successfully added product review!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
@@ -207,5 +207,5 @@ def delete_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
     product = review.product
     review.delete()
-    messages.success(request, 'Review deleted!')
+    messages.info(request, 'Review deleted!')
     return redirect(reverse('product_detail', args=[product.id]))

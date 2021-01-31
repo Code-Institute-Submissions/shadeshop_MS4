@@ -168,7 +168,8 @@
                             {% endif %} 
                         </div>
                         <div class="col-6 text-right">
-                            <p> <i class="fas fa-chevron-down"></i> <strong>Customer: </strong>{{ item.user_profile.user.username }}</p>
+                            <p class="d-inline"><i class="fas fa-chevron-down"></i> <strong>Customer: </strong>{{ item.user_profile.user.username }}</p>
+                            {% if item.user_profile.user == user %}<p class="remove-item text-danger d-inline pl-2" id="remove_{{ item.id }}"><i class="fas fa-trash-alt text-danger fa-lg"></i></p>{% endif %}
                         </div>
                     </div>
                 </a>
@@ -211,7 +212,6 @@
                     </div>   
                 </div>
             </div>
-            
         </div>
     </div>
 {% endblock %}
@@ -233,5 +233,19 @@
         return false;
     }
     }
+</script>
+<script>
+// Remove review and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var reviewId = $(this).attr('id').split('remove_')[1];
+        var url = `/products/deletereview/${reviewId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
 </script>
 {% endblock %}
