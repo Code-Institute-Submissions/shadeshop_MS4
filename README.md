@@ -6,6 +6,11 @@ The concept for my website was an e-commerce shop selling sunglasses. The app wa
 
 The live website can be found [here.](https://shadeshop-ms4.herokuapp.com/)
 
+Some Notes on the project
+* Only logged in users can have a wishlist
+* Only logged in users can leave a review and only if they have previously purchased the product in questions
+* Stripe test card 4242 4242 4242 4242 with any expiry CVV and zip code should be used. 
+
 **<ins>Disclaimer<ins>**: 
 The site has been developed for educational and assessment purposes, all work has been credited as appropriate and it is not the intention to use the site commercially. 
 
