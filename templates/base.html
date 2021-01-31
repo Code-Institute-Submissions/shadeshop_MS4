@@ -67,21 +67,21 @@
                 <div class="col-12 col-lg-3 my-auto py-1 px-md-0 d-none d-lg-flex justify-content-end">
                     <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                         <li class="list-inline-item">
-                             <a class="text-black nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                             <a class="text-black nav-link px-1 px-xl-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <div class="text-center">
                                     <div><i class="fas fa-search fa-2x"></i></div>
                                 </div>
                              </a>                            
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link text-black " href="{% url 'view_wishlist' %}">
+                            <a class="nav-link text-black px-1 px-xl-3" href="{% url 'view_wishlist' %}">
                                 <div class="text-center">
                                     <i class="fas fa-heart fa-2x"></i>
                                 </div>
                             </a>                           
                         </li>
                         <li class="list-inline-item dropdown">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                            <a class="text-black nav-link px-1 px-xl-3" href="#" id="user-options" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <div><i class="fas fa-user fa-2x"></i></div>
@@ -103,7 +103,7 @@
                             </div>
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link text-black " href="{% url 'view_bag' %}">
+                            <a class="nav-link text-black px-1 px-xl-3" href="{% url 'view_bag' %}">
                                 <div class="text-center">
                                     <!--Includes bootstrap tooltip with Grand Total of Bag-->
                                     <i class="fas fa-shopping-bag fa-2x" data-toggle="tooltip" data-placement="bottom" title="{% if grand_total %}€{{ grand_total|floatformat:2 }}{% else %}€0.00{% endif %}"></i>
