@@ -1,0 +1,1 @@
+web: gunicorn shadeshop_MS4.wsgi:application
