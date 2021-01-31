@@ -9,8 +9,11 @@ from profiles.models import UserProfile
 
 
 class Wishlist(models.Model):
-    wishlist_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False, blank=False, related_name='wishlists', default=1)
+    wishlist_number = models.CharField(
+        max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.CASCADE,
+        null=False, blank=False, related_name='wishlists', default=1)
     item_count = models.IntegerField(null=True, blank=False)
 
     def _generate_wishlist_number(self):
@@ -41,10 +44,15 @@ class Wishlist(models.Model):
 
 
 class WishLineItem(models.Model):
-    wishlist = models.ForeignKey(Wishlist, null=False, blank=False, on_delete=models.CASCADE, related_name='wishitems')
-    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    wishlist = models.ForeignKey(
+        Wishlist, null=False, blank=False,
+        on_delete=models.CASCADE, related_name='wishitems')
+    product = models.ForeignKey(
+        Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    wishitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    wishitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """

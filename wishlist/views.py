@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse, redirect,reverse
+from django.shortcuts import (
+    render, get_object_or_404, HttpResponse, redirect, reverse)
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q
 
 from .models import Wishlist, WishLineItem
 from profiles.models import UserProfile
@@ -24,25 +24,29 @@ def view_wishlist(request):
 
     return render(request, template, context)
 
+
 @login_required
 def add_to_wishlist(request, product_id):
     """ Add a quantity of the specified product to the shopping bag """
 
     product = get_object_or_404(Product, pk=product_id)
-    quantity = 1 # int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     profile = get_object_or_404(UserProfile, user=request.user)
     wishlist = Wishlist.objects.get(user_profile=profile)
 
     try:
-        wishitems = WishLineItem.objects.get(product=product, wishlist=wishlist.id)
+        wishitems = WishLineItem.objects.get(
+            product=product, wishlist=wishlist.id)
     except Exception:
         wishitems = None
 
     if wishitems:
-        wishitems.quantity = quantity + wishitems.quantity 
+        wishitems.quantity = (quantity +
+                              wishitems.quantity)
         wishitems.save()
-        messages.info(request, f'Updated {wishitems.product.name} quantity in your wishlist!')
+        messages.info(request, (
+            f'Updated {wishitems.product.name} quantity in your wishlist!'))
     else:
         new_wishitem = WishLineItem(
             wishlist=wishlist,
@@ -50,9 +54,11 @@ def add_to_wishlist(request, product_id):
             quantity=quantity,
         )
         new_wishitem.save()
-        messages.info(request, f'Added {new_wishitem.product.name} to your wishlist!')
+        messages.info(request, (
+            f'Added {new_wishitem.product.name} to your wishlist!'))
 
     return redirect(redirect_url)
+
 
 @login_required
 def remove_from_wishlist(request, product_id):
@@ -61,12 +67,14 @@ def remove_from_wishlist(request, product_id):
     try:
         wish = get_object_or_404(WishLineItem, product=product_id)
         wish.delete()
-        messages.info(request, f'Removed {wish.product.name} from your wishlist!')
+        messages.info(request, (
+            f'Removed {wish.product.name} from your wishlist!'))
         return HttpResponse(status=200)
 
     except Exception as e:
         messages.error(request, f'Error removing item: {e}.')
         return HttpResponse(status=500)
+
 
 @login_required
 def adjust_wishlist(request, product_id):
@@ -81,6 +89,7 @@ def adjust_wishlist(request, product_id):
         messages.info(request, f'Updated {wish.product.name} quantity!')
     else:
         wish.delete()
-        messages.info(request, f'Removed {wish.product.name} from your wishlist!')
+        messages.info(request, (
+            f'Removed {wish.product.name} from your wishlist!'))
 
     return redirect(reverse('view_wishlist'))
