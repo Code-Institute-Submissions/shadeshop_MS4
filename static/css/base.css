@@ -140,6 +140,21 @@ body {
 	z-index: -1;
 }
 
+/*Scroll to Top*/
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #fff;
+}
+
+.btt-link, .update-link, .remove-item {
+    cursor: pointer;
+}
+
 /*-------------------------------Shopping Bag & Wishlist*/
 
 .remove-item, .update-link {
@@ -299,15 +314,19 @@ body {
     .hero-font {
         font-size: 3.5rem;
     }
-
-    .home-button {
-    min-width: 240px;
-    font-size: 1rem;
-    }
-
-    
+  
     .searchbox {
         width: 100%;
+    }
+
+    .btn {
+        padding: 0.375rem 0.25rem;
+        font-size: 1rem;
+    }
+
+    .home-button {
+    min-width: 220px;
+    font-size: 1rem;
     }
 
 }
@@ -320,10 +339,16 @@ body {
 
     .btn {
         padding: 0.375rem 0.25rem;
+        font-size: 0.75rem;
     }
 
     .increment-qty, .decrement-qty {
         padding: .25rem 0.5rem !important;
+    }
+
+    .home-button {
+    min-width: 200px;
+    font-size: 1rem;
     }
    
 }

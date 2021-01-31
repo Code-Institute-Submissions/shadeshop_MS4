@@ -57,19 +57,6 @@
     width: 50%;
 }
 
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: #fff;
-}
-
-.btt-link, .update-link, .remove-item {
-    cursor: pointer;
-}
-
 /*-------------------------------Product detail*/
 
 .image-container:hover {
