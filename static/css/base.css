@@ -317,5 +317,13 @@ body {
         .hero-font {
         font-size: 3rem;
     }
+
+    .btn {
+        padding: 0.375rem 0.25rem;
+    }
+
+    .increment-qty, .decrement-qty {
+        padding: .25rem 0.5rem !important;
+    }
    
 }
