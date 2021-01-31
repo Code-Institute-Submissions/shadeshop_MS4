@@ -1,6 +1,10 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models import Avg
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.db.models.functions import Round
 
 from profiles.models import UserProfile
 
@@ -31,6 +35,15 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     image_credit = models.CharField(max_length=254, null=True, blank=True)
 
+    def update_rating(self):
+        """
+        Update ratinf each time a review is added
+        """
+        rating = Review.objects.filter(product=self).aggregate(Avg('rating'))
+        rating_val = float(rating['rating__avg'])
+        self.rating = rating_val
+        self.save()
+
     def clean(self):
         if self.sale and self.saleprice is None:
             raise ValidationError("Sale items must have sale price")
@@ -47,4 +60,13 @@ class Review(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.id
+        return f'Review for product SKU {self.product.sku}'
+
+
+@receiver(post_save, sender=Review)
+def update_on_save(sender, instance, created, **kwargs):
+    """
+    Update product rating
+    """
+    instance.product.update_rating()
+
