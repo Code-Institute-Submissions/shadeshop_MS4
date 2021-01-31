@@ -179,5 +179,9 @@
     .starrating > label:before { 
         font-size: 1em;
     }
+
+    .img_description h5 {
+        font-size: 1rem;
+    }
  
 }
