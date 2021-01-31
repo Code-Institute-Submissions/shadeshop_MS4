@@ -33,7 +33,14 @@ def add_to_wishlist(request, product_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     profile = get_object_or_404(UserProfile, user=request.user)
-    wishlist = Wishlist.objects.get(user_profile=profile)
+
+    try:
+        wishlist = Wishlist.objects.get(user_profile=profile)
+    except Exception:
+        wishlist = Wishlist(
+            user_profile=profile,
+        )
+        wishlist.save()
 
     try:
         wishitems = WishLineItem.objects.get(
