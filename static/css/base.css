@@ -312,7 +312,7 @@ body {
 
 }
 
-/* on galaxy fold devices only xxs screen size */
+/* on xxs screen size */
 @media (max-width: 330px) {
         .hero-font {
         font-size: 3rem;

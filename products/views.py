@@ -7,7 +7,8 @@ from django.db.models.functions import Lower
 
 from .models import Product, Brand, Review
 from .forms import ProductForm
-
+from profiles.models import UserProfile
+from checkout.models import Order, OrderLineItem
 
 # Create your views here.
 
@@ -88,10 +89,23 @@ def product_detail(request, product_id):
     """ A view to show individual product detail"""
 
     product = get_object_or_404(Product, pk=product_id)
+    orderitems = OrderLineItem.objects.all().filter(product=product)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        all_orders = Order.objects.filter(user_profile=profile)
+        queries = Q(order__in=all_orders) & Q(product=product)
+        user_orders = orderitems.filter(queries)
+    else:
+        user_orders = None
 
     context = {
         'product': product,
+        'user_orders': user_orders,
+
     }
+
+    print(context)
 
     return render(request, 'products/product_detail.html', context)
 
