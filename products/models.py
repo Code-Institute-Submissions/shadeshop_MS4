@@ -2,7 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models import Avg
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.db.models.functions import Round
 
@@ -39,9 +39,13 @@ class Product(models.Model):
         """
         Update ratinf each time a review is added
         """
-        rating = Review.objects.filter(product=self).aggregate(Avg('rating'))
-        rating_val = float(rating['rating__avg'])
-        self.rating = rating_val
+        count = Review.objects.filter(product=self).count()
+        if count > 0:
+            rating = Review.objects.filter(product=self).aggregate(Avg('rating'))
+            rating_val = float(rating['rating__avg'])
+            self.rating = rating_val
+        else:
+            self.rating = None
         self.save()
 
     def clean(self):
@@ -70,3 +74,9 @@ def update_on_save(sender, instance, created, **kwargs):
     """
     instance.product.update_rating()
 
+@receiver(post_delete, sender=Review)
+def update_on_delete(sender, instance, **kwargs):
+    """
+    Update product rating
+    """
+    instance.product.update_rating()
