@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Brand, Review
-from .forms import ProductForm
+from .forms import ProductForm, ReviewForm
 from profiles.models import UserProfile
 from checkout.models import Order, OrderLineItem
 
@@ -99,10 +99,12 @@ def product_detail(request, product_id):
     else:
         user_orders = None
 
+    review_form = ReviewForm()
+
     context = {
         'product': product,
         'user_orders': user_orders,
-
+        'review_form': review_form,
     }
 
     print(context)
@@ -178,3 +180,22 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def add_review(request, product_id):
+    if request.method == 'POST':
+        user_profile = UserProfile.objects.get(user=request.user)
+        product = Product.objects.get(id=product_id)
+
+        review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            new_review = review_form.save(commit=False)
+            new_review.user_profile = user_profile
+            new_review.product = product
+            new_review.save()
+            messages.success(request, 'Successfully added product review!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(
+                request, 'Failed to add review. Please ensure the form is valid.')

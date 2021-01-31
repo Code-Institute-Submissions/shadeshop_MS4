@@ -1,3 +1,5 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 /*--------------------------------- Products*/
 
 .img_wrap {
@@ -88,6 +90,32 @@
     background-color: #f9f9f9;
     font-weight: 700;
 }
+
+/*-------------------Review Form*/
+
+/*--Code From https://codepen.io/yaworek/pen/JJpEaZ*/
+
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.starrating > label:before { 
+  content: "\f005"; /* Star */
+  margin: 2px;
+  font-size: 1.5em;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  display: inline-block; 
+}
+
+.starrating > label
+{
+  color: #222222; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label
+{ color: #ffca08 ; } /* Set yellow color when star checked */
+
+.starrating > input:hover ~ label
+{ color: #ffca08 ;  } /* Set yellow color when star hover */
 
 /* Product Form */
 

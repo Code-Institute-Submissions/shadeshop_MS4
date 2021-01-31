@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, Brand
+from .models import Product, Brand, Review
 from django.core.exceptions import ValidationError
 
 
@@ -30,3 +30,16 @@ class ProductForm(forms.ModelForm):
         if sale and saleprice is None:
             msg = "Sale items must have sale price"
             self.add_error('saleprice', msg)
+
+
+class ReviewForm(forms.ModelForm):
+
+    class Meta:
+        model = Review
+        fields = ('rating', 'description')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'
