@@ -50,7 +50,7 @@ def add_to_wishlist(request, product_id):
             quantity=quantity,
         )
         new_wishitem.save()
-        messages.info(request, f'Added {wishitems.product.name} to your wishlist!')
+        messages.info(request, f'Added {new_wishitem.product.name} to your wishlist!')
 
     return redirect(redirect_url)
 
