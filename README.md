@@ -1,45 +1,96 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<div align="center">
+  <img src="readme/media/responsiveexample.png">
+<hr>
 
-Welcome allanahmurphy,
+The concept for my website was an e-commerce shop selling sunglasses. The app was built using [GitHub](https://pages.github.com/) and deployed to [Heroku.](https://www.heroku.com/) All static files and media are stored using [AWS](https://aws.amazon.com/).
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+The live website can be found [here.](https://shadeshop-ms4.herokuapp.com/)
 
-## Gitpod Reminders
+**<ins>Disclaimer<ins>**: 
+The site has been developed for educational and assessment purposes, all work has been credited as appropriate and it is not the intention to use the site commercially. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+##Table of Contents##
 
-`python3 -m http.server`
+**<details><summary> User Experience (UX)</summary>**
+  - [Purpose](#purpose)
+  - [User stories](#user-stories)
+  - [Design](#design)
+  - [Wireframes](#wireframes)
+  - [Database](#database)
+  - [Data Schema](#data-schema)
+</details>
 
-A blue button should appear to click: *Make Public*,
+**<details><summary> Features</summary>**
+  - [Features used](#features-used)
+  - [To do list](#to-do-list)
+  - [Status](#status)
+</details>
 
-Another blue button should appear to click: *Open Browser*.
+**<details><summary> Technologies</summary>**
+  - [Languages](#languages)
+  - [Frameworks, Libraries & Programs](#frameworks-libraries-programs)
+</details>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+**<details><summary> Deployment</summary>**
+  - [Deploy to Heroku](#deploy-to-heroku)
+  - [Deploy to AWS](#deploy-to-aws)
+  - [Accessing code](#accessing-code)
+</details>
 
-A blue button should appear to click: *Make Public*,
+**<details><summary> Testing</summary>**
+  - [Testing](#testing)
+</details>
 
-Another blue button should appear to click: *Open Browser*.
+**<details><summary> Credits</summary>**
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
+</details>
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+**<details><summary> Contact</summary>**
+  - [Contact details](#contact-details) 
+</details>
 
-## Updates Since The Instructional Video
+# **User Experience**
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### **Purpose**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+As outlined above, the site is online e-commerce platform for a fictional shop called ShadeShop which sells sunglasses. The purpose of the site is to provide a modern, functional and fun webiste to entice customers to buy the products. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+For an educational standpoint, the purpose of the site is demonstrate my knowledge of the Code Institute Curriculum which culminates in this final milestone project. The projects combines my knowledge of HTML, CSS, JavaScript, Python, Django Framework and combining front and back end development. 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### **User Stories**
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+I developed a series of user stories from the perspective of a shopper, registered site user and store owner. 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+The user stories are shown below and can also be found as pdf [here.](readme/files/userStories.pdf)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<img src="readme/media/userStories.png">
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### **Design**
 
---------
+#### Colours
 
-Happy coding!
+I wanted the design of the site to simple, modern and clean but also fun. The main colour choice, yellow for sun, was decided my imagery I found while researching the site and I used complementary and constrasting colours around this. Below shows the original image inspiration, also main image on home page, and the colour palette used. 
+
+<img src="readme/media/colours.png">
+
+#### Typography
+
+I choose 'Bungee' for the main heading and logo throughout the site as I thought it suited the modern but fun style. It's eyecatchig and bold but not too serious or formal. I choose lato as the completing font for all paragraphs, content etc as this was recommended as a complementary font by Google fonts. 
+
+### **Wireframes**
+
+I developed initial wireframes while planning the site using [Moqups](https://moqups.com/). The wireframes for desktop, tablet and mobile for the home page are shown below. Whilst, the design evolved during development I still think they give a reasonable impression of the final site and certainly helped with design process. More wireframes can be found [here.](readme/wireframes)
+
+<img src="readme/wireframes/homeDesktop.png">
+
+<img src="readme/wireframes/homeTablet_Mobile.png">
+
+### Database
+
+I employed a Relational Database to store the collection models needed for the site. I used [SQLite](https://www.sqlite.org/index.html) in development, as this is created by default by Django, and [Heroku Postgres](https://www.heroku.com/postgres) in production. Relational databases were a suitable choice for this project as it allows multiple tables to be created, with data easily connected through the use of foreign keys. All Models included are related to at least one other Model and implement common database relationships: many-to-one, many-to-many and one-to-one.
+
+As per the project requirements I included a number of additional models not included in the CI Boutique Ado example site these included the Wishlist, Wishlistitem and Review models. The wish list models were for a seperate app 'Wishlist' and the review model was an inline model to the Products model within the Products app. 
+
+> **Note:** .sqlite3, my development database file, was added to .gitignore before my initial commit to stop it being pushed to GitHub.
